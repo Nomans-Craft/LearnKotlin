@@ -1,31 +1,27 @@
-fun main() {
-    abstract class Pet(var name: String)
+/**
+ * Your job is to take code snippets from the pool and place them into the
+ * blank lines in the code. You may not use the same code snippet more
+ * than once, and you won’t need to use all the code snippets. Your goal is
+ * to create a class named PetOwner that accepts generic Pet types, which
+ * you must then use to create a new PetOwner<Cat> that holds references
+ * to two Cat objects.
+ */
 
-    class Cat(name: String) : Pet(name)
-    class Dog(name: String) : Pet(name)
-    class Fish(name: String) : Pet(name)
+class PetOwner<T: Pet>(t:T) {
+    val pets = mutableListOf(t)
 
-    class Contest<T: Pet> {
-        val scores: MutableMap<T, Int> = mutableMapOf()
-
-        fun addScores(t: T, score: Int = 0) {
-            if (score >= 0) scores.put(t, score)
-        }
-
-        fun getWinners(): MutableSet<T> {
-            val highScore = scores.values.max()
-            val winners : MutableSet<T> = mutableSetOf()
-            for ((t, score) in scores) {
-                if (score == highScore) winners.add(t)
-            }
-            return winners
-        }
+    fun add(t: T) {
+        pets.add(t)
     }
 
-    val catContest = Contest<Cat>()
-    catContest.addScores(Cat("Fuzz Lightyear"), 50)
-    catContest.addScores(Cat("Katsu"), 45)
-    val topCat = catContest.getWinners().first()
-
-    println(topCat.name)
+    fun remove(t: T) {
+        pets.remove(t)
+    }
+}
+fun main() {
+    val catFuzz = Cat("Fuzz Lightyear")
+    val catKatsu = Cat("Katsu")
+    val fishFinny = Cat("Finny McGraw")
+    val catOwner = PetOwner(catFuzz)
+    catOwner.add(catKatsu)
 }
