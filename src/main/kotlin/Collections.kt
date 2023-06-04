@@ -1,13 +1,30 @@
 fun main() {
-    println("Copy a MutableSet")
+    println("Collection project")
 
-    val friendSet = mutableSetOf("Jim", "Sue", "Noman")
-    val mFriendSet = friendSet.toMutableSet()
-    val friendList = friendSet.toList()
-    val mFriendList = friendList.toMutableList()
+    var mShoppingList = mutableListOf("Tea", "Eggs", "Milk")
+    println("mShoppingList original: $mShoppingList")
 
-    println("$friendSet")
-    println("$mFriendSet")
-    println("$friendList")
-    println("$mFriendList")
+    val extraShopping= listOf("Cookies", "Sugar", "Eggs")
+    mShoppingList.addAll(extraShopping)
+    println("mShoppingList items added: $mShoppingList")
+
+    if (mShoppingList.contains("Tea")) {
+        mShoppingList.set(mShoppingList.indexOf("Tea"), "Cofffee")
+    }
+
+    mShoppingList.sort()
+    println("mShoppingList sorted: $mShoppingList")
+
+    mShoppingList.reverse()
+    println("mShoppingList reversed: $mShoppingList")
+
+    val mShoppingSet = mShoppingList.toMutableSet()
+    println("mShoppingSet: $mShoppingSet")
+
+    val moreShopping = setOf("Chives", "Spinach", "Milk")
+    mShoppingSet.addAll(moreShopping)
+    println("mShoppingSet items added: $mShoppingSet")
+
+    mShoppingList = mShoppingSet.toMutableList()
+    println("mShoppingList new version: $mShoppingList")
 }
