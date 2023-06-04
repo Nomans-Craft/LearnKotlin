@@ -18,6 +18,20 @@ fun main() {
     mRecipeMap.remove("Recipe1", recipeToRemove)
     println(mRecipeMap)
 
-    mRecipeMap.clear()
-    println(mRecipeMap)
+//    mRecipeMap.clear()
+//    println(mRecipeMap)
+
+    val recipeMapCopy = mRecipeMap.toMap()
+    println(recipeMapCopy)
+    val recipeList = mRecipeMap.toList()
+    println(recipeList)
+
+    val recipeEntries = mRecipeMap.entries
+    println(recipeEntries)
+
+    if (mRecipeMap.size > mRecipeMap.values.toSet().size) {
+        println("mRecipeMap contain duplicates values.")
+    } else {
+        println("mRecipeMap don't contain duplicates values.")
+    }
 }
