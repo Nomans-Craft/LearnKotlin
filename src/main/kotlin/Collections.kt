@@ -1,37 +1,48 @@
+data class Recipe (var name: String)
 fun main() {
-    val r1 = "Chicken Soup"
-    val r2 = "Quinoa Salad"
-    val r3 = "Thai Curry"
-    val r4 = "Jambalaya"
-    val r5 = "Sausage Rolls"
+    println("Collection project")
 
-    val mRecipeMap = mutableMapOf("Recipe1" to r1, "Recipe2" to r2)
-    mRecipeMap.put("Recipe3", r3)
+    var mShoppingList = mutableListOf("Tea", "Eggs", "Milk")
+    println("mShoppingList original: $mShoppingList")
+
+    val extraShopping= listOf("Cookies", "Sugar", "Eggs")
+    mShoppingList.addAll(extraShopping)
+    println("mShoppingList items added: $mShoppingList")
+
+    if (mShoppingList.contains("Tea")) {
+        mShoppingList.set(mShoppingList.indexOf("Tea"), "Cofffee")
+    }
+
+    mShoppingList.sort()
+    println("mShoppingList sorted: $mShoppingList")
+
+    mShoppingList.reverse()
+    println("mShoppingList reversed: $mShoppingList")
+
+    val mShoppingSet = mShoppingList.toMutableSet()
+    println("mShoppingSet: $mShoppingSet")
+
+    val moreShopping = setOf("Chives", "Spinach", "Milk")
+    mShoppingSet.addAll(moreShopping)
+    println("mShoppingSet items added: $mShoppingSet")
+
+    mShoppingList = mShoppingSet.toMutableList()
+    println("mShoppingList new version: $mShoppingList")
+
+    val r1 = Recipe("Chicken Soup")
+    val r2 = Recipe("Quinoa Salad")
+    val r3 = Recipe("Thai Curry")
+    val r4 = Recipe("Jambalaya")
+    val r5 = Recipe("Sausage Rolls")
+
+    val mRecipeMap = mutableMapOf("Recipe1" to r1, "Recipe2" to r2, "Recipe3" to r3)
+    println("mRecipeMap original: $mRecipeMap")
+
     val recipesToAdd = mapOf("Recipe4" to r4, "Recipe5" to r5)
     mRecipeMap.putAll(recipesToAdd)
-    println(mRecipeMap)
+    println("mRecipeMap updated: $mRecipeMap")
 
-    mRecipeMap.remove("Recipe2")
-    println((mRecipeMap))
-
-    val recipeToRemove = "Chicken Soup"
-    mRecipeMap.remove("Recipe1", recipeToRemove)
-    println(mRecipeMap)
-
-//    mRecipeMap.clear()
-//    println(mRecipeMap)
-
-    val recipeMapCopy = mRecipeMap.toMap()
-    println(recipeMapCopy)
-    val recipeList = mRecipeMap.toList()
-    println(recipeList)
-
-    val recipeEntries = mRecipeMap.entries
-    println(recipeEntries)
-
-    if (mRecipeMap.size > mRecipeMap.values.toSet().size) {
-        println("mRecipeMap contain duplicates values.")
-    } else {
-        println("mRecipeMap don't contain duplicates values.")
+    if (mRecipeMap.containsKey("Recipe1")) {
+        println("Recipe1 is: ${mRecipeMap.getValue("Recipe1")}")
     }
 }
