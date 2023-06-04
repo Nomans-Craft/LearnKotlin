@@ -1,30 +1,30 @@
+/*
+* EXERCISE: SHARPEN YOUR PENCIL
+* Four friends have each made a List of their pets. One item in the List
+* represents one pet. Here are the four lists.
+* val petsLiam = listOf("Cat", "Dog", "Fish", "Fish")
+* val petsSophia = listOf("Cat", "Owl")
+* val petsNoah = listOf("Dog", "Dove", "Dog", "Dove")
+* val petsEmily = listOf("Hedgehog")
+* Write the code to print how many types of pet there are.
+ */
 fun main() {
-    println("Collection project")
+    val petsLiam = listOf("Cat", "Dog", "Fish", "Fish")
+    val petsSophia = listOf("Cat", "Owl")
+    val petsNoah = listOf("Dog", "Dove", "Dog", "Dove")
+    val petsEmily = listOf("Hedgehog")
 
-    var mShoppingList = mutableListOf("Tea", "Eggs", "Milk")
-    println("mShoppingList original: $mShoppingList")
+    val pets: MutableList<String> = mutableListOf()
+    pets.addAll(petsLiam)
+    pets.addAll(petsSophia)
+    pets.addAll(petsNoah)
+    pets.addAll(petsEmily)
+    pets.size
 
-    val extraShopping= listOf("Cookies", "Sugar", "Eggs")
-    mShoppingList.addAll(extraShopping)
-    println("mShoppingList items added: $mShoppingList")
+    val petSet = pets.toMutableSet()
+    println(petSet.size)
 
-    if (mShoppingList.contains("Tea")) {
-        mShoppingList.set(mShoppingList.indexOf("Tea"), "Cofffee")
-    }
-
-    mShoppingList.sort()
-    println("mShoppingList sorted: $mShoppingList")
-
-    mShoppingList.reverse()
-    println("mShoppingList reversed: $mShoppingList")
-
-    val mShoppingSet = mShoppingList.toMutableSet()
-    println("mShoppingSet: $mShoppingSet")
-
-    val moreShopping = setOf("Chives", "Spinach", "Milk")
-    mShoppingSet.addAll(moreShopping)
-    println("mShoppingSet items added: $mShoppingSet")
-
-    mShoppingList = mShoppingSet.toMutableList()
-    println("mShoppingList new version: $mShoppingList")
+    val petList = petSet.toMutableList()
+    petList.sort()
+    println(petList)
 }
