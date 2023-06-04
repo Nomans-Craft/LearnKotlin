@@ -1,24 +1,13 @@
 fun main() {
-    println("How to use a MutableSet")
+    println("Copy a MutableSet")
 
-    val mFriendSet = mutableSetOf("Jim", "Sue")
-    mFriendSet.add("Nick")
-    println("${mFriendSet.add("Sue")}")//Duplicate value return "false"
-    mFriendSet.remove("Jim")
+    val friendSet = mutableSetOf("Jim", "Sue", "Noman")
+    val mFriendSet = friendSet.toMutableSet()
+    val friendList = friendSet.toList()
+    val mFriendList = friendList.toMutableList()
+
+    println("$friendSet")
     println("$mFriendSet")
-
-    val toAdd = setOf("Joe", "Mia")
-    mFriendSet.addAll(toAdd)
-    println(mFriendSet)
-
-    val toRemove = setOf("Mia")
-    mFriendSet.removeAll(toRemove)
-    println(mFriendSet)
-
-    val toRetain = setOf("Sue", "Nick")
-    mFriendSet.retainAll(toRetain)
-    println(mFriendSet)
-
-    mFriendSet.clear()
-    println(mFriendSet)
+    println("$friendList")
+    println("$mFriendList")
 }
