@@ -11,7 +11,13 @@ fun main() {
     mRecipeMap.putAll(recipesToAdd)
     println(mRecipeMap)
 
-    for ((key, value) in mRecipeMap) {
-        println("Key is $key and Value is $value")
-    }
+    mRecipeMap.remove("Recipe2")
+    println((mRecipeMap))
+
+    val recipeToRemove = "Chicken Soup"
+    mRecipeMap.remove("Recipe1", recipeToRemove)
+    println(mRecipeMap)
+
+    mRecipeMap.clear()
+    println(mRecipeMap)
 }
