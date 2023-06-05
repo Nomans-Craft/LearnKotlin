@@ -1,3 +1,4 @@
+/*
 abstract class Pet(var name: String)
 
 class Cat(name: String) : Pet(name)
@@ -28,4 +29,4 @@ fun main() {
     val topCat = catContest.getWinners().first()
 
     println("Pet contest winner is ${topCat.name}")
-}
+}*/

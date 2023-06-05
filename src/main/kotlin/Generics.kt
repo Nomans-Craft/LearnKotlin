@@ -1,4 +1,10 @@
-interface Retailer<T> {
+abstract class Pet(var name: String)
+
+class Cat(name: String) : Pet(name)
+class Dog(name: String) : Pet(name)
+class Fish(name: String) : Pet(name)
+
+interface Retailer<out T> {
     fun sell(): T
 }
 
@@ -19,4 +25,8 @@ class DogRetailer : Retailer<Dog> {
 fun main() {
     val dogRetailer: Retailer<Dog> = DogRetailer()
     val catRetailer: Retailer<Cat> = CatRetailer()
+    val petRetailer: Retailer<Pet> = CatRetailer()
+
+    val catList: List<Cat> = listOf(Cat(""), Cat(""))
+    val petList: List<Pet> = catList
 }
