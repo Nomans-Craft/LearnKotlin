@@ -1,10 +1,11 @@
+/*
 abstract class Pet(var name: String)
 
 class Cat(name: String) : Pet(name)
 class Dog(name: String) : Pet(name)
 class Fish(name: String) : Pet(name)
 
-interface Retailer<out T> {
+interface Retailer< T> {
     fun sell(): T
 }
 
@@ -29,4 +30,4 @@ fun main() {
 
     val catList: List<Cat> = listOf(Cat(""), Cat(""))
     val petList: List<Pet> = catList
-}
+}*/

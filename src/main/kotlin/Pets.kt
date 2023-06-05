@@ -1,4 +1,3 @@
-/*
 abstract class Pet(var name: String)
 
 class Cat(name: String) : Pet(name)
@@ -22,11 +21,50 @@ class Contest<T: Pet> {
     }
 }
 
-fun main() {
-    val catContest = Contest<Cat>()
-    catContest.addScores(Cat("Fuzz Lightyear"), 50)
-    catContest.addScores(Cat("Katsu"), 45)
-    val topCat = catContest.getWinners().first()
+interface Retailer<out T> {
+    fun sell(): T
+}
 
-    println("Pet contest winner is ${topCat.name}")
-}*/
+class CatRetailer: Retailer<Cat> {
+    override fun sell(): Cat {
+        println("Sell cat.")
+        return Cat("")
+    }
+}
+
+class DogRetailer: Retailer<Dog> {
+    override fun sell(): Dog {
+        println("Sell dog.")
+        return Dog("")
+    }
+}
+
+class FishRetailer: Retailer<Fish> {
+    override fun sell(): Fish {
+        println("Sell fish.")
+        return Fish("")
+    }
+}
+
+fun main() {
+    val catFuzz = Cat("Fuzz Lightyear")
+    val catKatsu = Cat("Katsu")
+    val fishFinny = Fish("Finny McGraw")
+
+    val catContest = Contest<Cat>()
+    catContest.addScores(catFuzz, 50)
+    catContest.addScores(catKatsu, 45)
+    val topCat = catContest.getWinners().first()
+    println("Pet contest winner is ${topCat.name}.")
+
+    val petContest = Contest<Pet>()
+    petContest.addScores(catFuzz, 50)
+    petContest.addScores(fishFinny, 56)
+    val topPet = petContest.getWinners().first()
+    println("Pet contest winner is ${topPet.name}.")
+
+    val dogRetailer: Retailer<Dog> = DogRetailer()
+    val catRetailer: Retailer<Cat> = CatRetailer()
+    val petRetailer: Retailer<Pet> = CatRetailer()
+    petRetailer.sell()
+}
