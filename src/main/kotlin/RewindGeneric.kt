@@ -9,6 +9,10 @@ interface MyGenericInterface<T> {
     fun doSomething(data: T)
 }
 
+fun <T> printData(data: T) {
+    println("Data: $data")
+}
+
 fun main() {
     val myStringClass = MyGenericClass("Hello, world")
     val myIntClass = MyGenericClass(42)
@@ -20,7 +24,8 @@ fun main() {
             println("Doing Something with String data: $data")
         }
     }
-   val myGenericImpl = MyGenericImpl()
-   myGenericImpl.doSomething("Hello, world")
-
+    val myGenericImpl = MyGenericImpl()
+    myGenericImpl.doSomething("Hello, world")
+    printData("Hello, world")
+    printData(5)
 }
