@@ -10,7 +10,28 @@ interface MyGenericInterface<T> {
 }
 
 fun <T> printData(data: T) {
-    println("Data: $data")
+    println("inputed Data is: $data")
+}
+
+class MyGenericClassCons<T: Number> (val data: T) {
+    fun getData(): T {
+        return data
+    }
+}
+
+fun <T> printIfString(value: T) where T: CharSequence {
+    if (value is String) {
+        println(value)
+    }
+}
+
+//Multipla type constrains on a single parameter
+fun <T> printIfNumber(value: T) where T: Number, T: Comparable<T> {
+    if (value is Int) {
+        println("Int: $value")
+    } else if (value is Double) {
+        println("Double: $value")
+    }
 }
 
 fun main() {
