@@ -1,52 +1,21 @@
-class MyGenericClass<T> (val data: T) {
-    @JvmName("getDataJvm")
-    fun getData(): T {
-        return data
-    }
+open class Animal(val name: String)
+
+class Cat1(name: String): Animal(name)
+
+interface AnimalShelter<out T> {
+    fun getAnimal(): T
 }
 
-interface MyGenericInterface<T> {
-    fun doSomething(data: T)
-}
-
-fun <T> printData(data: T) {
-    println("inputed Data is: $data")
-}
-
-class MyGenericClassCons<T: Number> (val data: T) {
-    fun getData(): T {
-        return data
-    }
-}
-
-fun <T> printIfString(value: T) where T: CharSequence {
-    if (value is String) {
-        println(value)
-    }
-}
-
-//Multipla type constrains on a single parameter
-fun <T> printIfNumber(value: T) where T: Number, T: Comparable<T> {
-    if (value is Int) {
-        println("Int: $value")
-    } else if (value is Double) {
-        println("Double: $value")
+class CatShelter(private val cat: Cat1): AnimalShelter<Cat1> {
+    override fun getAnimal(): Cat1 {
+        return cat
     }
 }
 
 fun main() {
-    val myStringClass = MyGenericClass("Hello, world")
-    val myIntClass = MyGenericClass(42)
-    println(myStringClass.getData())
-    println(myIntClass.getData())
-
-    class MyGenericImpl : MyGenericInterface<String> {
-        override fun doSomething(data: String) {
-            println("Doing Something with String data: $data")
-        }
-    }
-    val myGenericImpl = MyGenericImpl()
-    myGenericImpl.doSomething("Hello, world")
-    printData("Hello, world")
-    printData(5)
+    val cat = Cat1("Whers")
+    val catShelter = CatShelter(cat)
+    val animalShelter: AnimalShelter<Animal> = catShelter
+    val animal: Animal = animalShelter.getAnimal()
+    println(animal.name)
 }
