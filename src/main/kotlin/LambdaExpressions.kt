@@ -26,4 +26,7 @@ fun main() {
 
     val addSeven: (Int) -> Int = {x: Int -> x + 7}
     val addEight: (Int) -> Int = {x -> x + 8}
+
+    println("Single parameter with it")
+    val addNine: (Int) -> Int = {it + 9}
 }
