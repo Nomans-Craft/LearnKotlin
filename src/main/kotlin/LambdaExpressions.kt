@@ -23,4 +23,7 @@ fun main() {
     val greeting: () -> String
     greeting = {"Hello"}
     println(greeting.invoke())
+
+    val addSeven: (Int) -> Int = {x: Int -> x + 7}
+    val addEight: (Int) -> Int = {x -> x + 8}
 }
