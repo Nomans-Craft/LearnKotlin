@@ -11,4 +11,16 @@ fun main() {
 
     println(result)
     println(addFive.invoke(10))
+
+    println("Lambda's type")
+    //(parameters) -> return_type
+    val msg = {x: Int -> "The value is $x"}
+
+    val add: (Int, Int) -> Int
+    add = {x: Int, y: Int -> x + y}
+    println(add.invoke(9, 9))
+
+    val greeting: () -> String
+    greeting = {"Hello"}
+    println(greeting.invoke())
 }
