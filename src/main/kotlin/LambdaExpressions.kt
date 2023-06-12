@@ -29,4 +29,9 @@ fun main() {
 
     println("Single parameter with it")
     val addNine: (Int) -> Int = {it + 9}
+
+    val myLambda: () -> Unit = {println("Hi!")}
+    val calculation: (Int, Int) -> Unit = {x, y -> x + y}
+
+
 }
