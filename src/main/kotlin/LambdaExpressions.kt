@@ -4,7 +4,7 @@
     }
 }*/
 
-fun getConversionLambda(str: String): (Double) -> Double {
+/*fun getConversionLambda(str: String): (Double) -> Double {
     if (str == "CentigradeToFahrenheit") {
         return {it * 1.8 + 32}
     } else if (str == "KgsToPounds") {
@@ -14,7 +14,12 @@ fun getConversionLambda(str: String): (Double) -> Double {
     } else {
         return {it}
     }
-}
+}*/
+
+fun combine(lambda1: (Double) -> Double,
+            lambda2: (Double) -> Double): (Double) -> Double {
+              return {x: Double -> lambda2(lambda1(x))}
+            }
 
 fun main(args: Array<String>) {
     /*val options = arrayOf("Red", "Amber", "Green")
@@ -26,7 +31,7 @@ fun main(args: Array<String>) {
         println("Stop!")
     }*/
 
-    val pounds = getConversionLambda("KgToPounds") (2.5)
+    //val pounds = getConversionLambda("KgToPounds") (2.5)
 
 
 }
