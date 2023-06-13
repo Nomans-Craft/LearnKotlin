@@ -33,5 +33,13 @@ fun main(args: Array<String>) {
 
     //val pounds = getConversionLambda("KgToPounds") (2.5)
 
+    //Define tow conversion lambdas
+    val kgsToPounds = {x: Double -> x * 2.204623}
+    val poundsToUsTons = {x: Double -> x / 2000.0}
 
+    //Combine the two lambdas to create a new one
+    val kgsToUSTons = combine(kgsToPounds, poundsToUsTons)
+
+    //Invoke the kgsToUSTons lambda
+    val usTons = kgsToUSTons(1000.0)
 }
