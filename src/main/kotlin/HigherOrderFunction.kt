@@ -8,6 +8,7 @@ fun main() {
     )
 
     val ints = listOf(1, 7, 3, 4, 5, 0, -1)
+    val strings = listOf("A", "B", "E", "D")
     val maxInt = ints.max()
     val minInt = ints.min()
     println("Maximum is $maxInt and Minimum is $minInt")
@@ -16,4 +17,7 @@ fun main() {
     val lowestUnitPrice = groceries.minBy { it.unitPrice }
     println("Highest priced grocery name is: ${highestUnitPrice.name} and price is: ${highestUnitPrice.unitPrice}")
     println("Highest priced grocery name is: ${lowestUnitPrice.name} and price is: ${lowestUnitPrice.unitPrice}")
+
+    val totalPrice = groceries.sumByDouble { it.unitPrice }
+    println("Total Price: $totalPrice")
 }
